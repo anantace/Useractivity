@@ -32,7 +32,7 @@ class Useractivity extends StudIPPlugin implements StandardPlugin
 
             //$scormOverviewItem = new Navigation(_('Übersicht'), $url);
             //Navigation::addItem('/course/useractivity/overview', $scormOverviewItem);
-        }
+        //}
 
     }
 
