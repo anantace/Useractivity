@@ -27,10 +27,10 @@ class Useractivity extends StudIPPlugin implements StandardPlugin
 	
 		if (Navigation::hasItem('/course') && ($perm->have_studip_perm('dozent', Request::get('cid')) || $perm->have_perm('admin')) ) {
             $url = PluginEngine::getURL($this);
-            $item = new Navigation(_('Teilnehmeraktivität'), $url);
+            $item = new Navigation(_('TeilnehmeraktivitÃ¤t'), $url);
             Navigation::addItem('/course/useractivity', $item);
 
-            //$scormOverviewItem = new Navigation(_('Übersicht'), $url);
+            //$scormOverviewItem = new Navigation(_('Ãœbersicht'), $url);
             //Navigation::addItem('/course/useractivity/overview', $scormOverviewItem);
         }
 
@@ -95,7 +95,7 @@ class Useractivity extends StudIPPlugin implements StandardPlugin
     private function getMiniCourseNavigation($course_id = NULL)
     {
 
-        $navigation = new Navigation('Teilnehmeraktivität', PluginEngine::getURL($this));
+        $navigation = new Navigation('TeilnehmeraktivitÃ¤t', PluginEngine::getURL($this));
         $navigation->setImage('icons/16/white/group3.png');
         $navigation->setActiveImage('icons/16/black/group3.png');
 
@@ -151,7 +151,7 @@ class Useractivity extends StudIPPlugin implements StandardPlugin
 	return null;
     }
     public function getTabNavigation($course_id){
-		return $this->getMiniCourseNavigation($course_id);
+		return null; //$this->getMiniCourseNavigation($course_id);
     }
     function getNotificationObjects($course_id, $since, $user_id){
     }
