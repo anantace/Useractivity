@@ -95,7 +95,7 @@ class Useractivity extends StudIPPlugin implements StandardPlugin
     private function getMiniCourseNavigation($course_id = NULL)
     {
 
-        $navigation = new Navigation('Teilnehmeraktivität', PluginEngine::getURL($this));
+        $navigation = new Navigation(_('Teilnehmeraktivität'), PluginEngine::getURL($this));
         $navigation->setImage('icons/16/white/group3.png');
         $navigation->setActiveImage('icons/16/black/group3.png');
 
