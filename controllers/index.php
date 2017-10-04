@@ -35,8 +35,7 @@ class IndexController extends StudipController {
                         LEFT JOIN forum_entries fe ON (u.user_id = fe.user_id AND fe.seminar_id = :sem_id)
                         WHERE su.Seminar_id = :sem_id
                         AND su.status = 'autor'
-			GROUP BY u.user_id
-			LIMIT 30";
+			GROUP BY u.user_id";
                             
         $statement = $db->prepare($query);
 	$statement->execute(array('sem_id' => $this->course_id));
@@ -61,8 +60,7 @@ class IndexController extends StudipController {
                         LEFT JOIN forum_entries fe ON (u.user_id = fe.user_id AND fe.seminar_id = :sem_id)
                         WHERE su.Seminar_id = :sem_id
                         AND su.status = 'dozent'
-			GROUP BY u.user_id
-			LIMIT 30";
+			GROUP BY u.user_id";
                             
         $statement = $db->prepare($query);
 	$statement->execute(array('sem_id' => $this->course_id));
