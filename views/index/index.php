@@ -9,9 +9,9 @@
     <thead>
 		<tr>
         <th style='width:25%'><span>Name</span></th>
-        <th><span>Zuletzt online vor</span></th>
-        <th style='display:none; width:25%'><span>Zuletzt online vor</span></th>
-        <th style='width:5%'><span>Anzahl Forenbeiträge</span></th>
+        <th style='width:27%'><span>Zuletzt online vor</span></th>
+        <th style='display:none; width:27%'><span>Zuletzt online vor</span></th>
+        <th style='width:3%'><span>Anzahl Forenbeiträge</span></th>
         <th style='width:45%'><span>Badges</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
