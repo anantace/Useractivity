@@ -1,6 +1,6 @@
 pluginname=TNActivity
 pluginclassname=TNActivity
 origin=elan-ev
-version=0.2+badges
+version=0.2
 studipMinVersion=3.1
 studipMaxVersion=3.4.99

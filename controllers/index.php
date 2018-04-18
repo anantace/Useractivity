@@ -40,17 +40,7 @@ class IndexController extends StudipController {
         $statement = $db->prepare($query);
 	$statement->execute(array('sem_id' => $this->course_id));
 	$this->tn_data = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
-    //TN Badges
-    foreach ($this->tn_data as $tn){ 
-        $values = array('user_id' => $tn['user_id']);
-        $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id ORDER BY sem_id ASC" ;
-        $statement = \DBManager::get()->prepare($query);
-        $statement->execute($values);
-        $this->badges[$tn['user_id']] = $statement->fetchAll(\PDO::FETCH_ASSOC);
-    }
-    
-    
+
         
         $db = DBManager::get();
         $query = "SELECT u.user_id, u.Vorname, u.Nachname, uo.last_lifesign, COUNT(fe.topic_id) AS Forenbeitraege
