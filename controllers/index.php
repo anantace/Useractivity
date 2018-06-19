@@ -59,9 +59,9 @@ class IndexController extends StudipController {
         $actions = new ActionsWidget();
         $actions->setTitle(_('Aktionen'));
 
-        //$actions->addLink(
-        //'Neuen Vorfall anlegen',
-        //PluginEngine::GetURL('rein/show/create_event/'.$provider_id),'icons/16/blue/add.png'); 
+        $actions->addLink(
+        'Einstellungen',
+        PluginEngine::GetURL('TNActivity/index/settings'),'icons/16/blue/add.png'); 
 
         Sidebar::get()->addWidget($actions);
         
