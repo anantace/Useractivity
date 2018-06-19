@@ -11,7 +11,7 @@
         <th style='width:25%'><span>Name</span></th>
         <th style='width:27%'><span>Zuletzt online vor</span></th>
         <th style='display:none; width:27%'><span>Zuletzt online vor</span></th>
-        <th style='width:3%'><span>Anzahl Forenbeitr�ge</span></th>
+        <th style='width:3%'><span>Anzahl Forenbeiträge</span></th>
         <? if ($badges): ?>
         <th style='width:45%'><span>Badges</span></th>
         <? endif ?>
@@ -68,7 +68,7 @@
                     <th><span>Name</span></th>
         <th><span>Zuletzt online vor</span></th>
         <th style='display:none'><span>Zuletzt online vor</span></th>
-        <th><span>Anzahl Forenbeitr�ge</span></th>
+        <th><span>Anzahl Forenbeiträge</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>
