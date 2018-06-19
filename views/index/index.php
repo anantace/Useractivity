@@ -11,7 +11,10 @@
         <th style='width:25%'><span>Name</span></th>
         <th style='width:27%'><span>Zuletzt online vor</span></th>
         <th style='display:none; width:27%'><span>Zuletzt online vor</span></th>
-        <th style='width:3%'><span>Anzahl Forenbeiträge</span></th>
+        <th style='width:3%'><span>Anzahl Forenbeitrï¿½ge</span></th>
+        <? if ($badges): ?>
+        <th style='width:45%'><span>Badges</span></th>
+        <? endif ?>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>
@@ -47,6 +50,9 @@
             <td style='display:none'><?= $tn['last_lifesign']?></td>
             <td><?= $last_online ?></td>
             <td><?= $tn['Forenbeitraege']?></td>
+            <? if ($badges): ?>
+            <td><?= $badge_content[$tn['user_id']]?></td>
+            <? endif ?>
             <!--<td>Courseware besucht?</td>-->
         </tr>
         <?
@@ -62,7 +68,7 @@
                     <th><span>Name</span></th>
         <th><span>Zuletzt online vor</span></th>
         <th style='display:none'><span>Zuletzt online vor</span></th>
-        <th><span>Anzahl Forenbeiträge</span></th>
+        <th><span>Anzahl Forenbeitrï¿½ge</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>

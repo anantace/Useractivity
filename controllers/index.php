@@ -18,7 +18,7 @@ class IndexController extends StudipController {
         $this->course_id       = Request::get('cid');
         $this->course          = Course::find($this->course_id);
 
-        PageLayout::setTitle($this->course->getFullname()." - " ._("Teilnehmeraktivität"));
+        PageLayout::setTitle($this->course->getFullname()." - " ._("Teilnehmeraktivitï¿½t"));
 
         // $this->set_layout('layouts/base');
         $this->set_layout($GLOBALS['template_factory']->open('layouts/base'));
@@ -40,7 +40,19 @@ class IndexController extends StudipController {
         $statement = $db->prepare($query);
 	$statement->execute(array('sem_id' => $this->course_id));
 	$this->tn_data = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+    
+    //TN Badges
+    try{
+        foreach ($this->tn_data as $tn){ 
+            $values = array('user_id' => $tn['user_id']);
+            $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id ORDER BY sem_id ASC" ;
+            $statement = \DBManager::get()->prepare($query);
+            $statement->execute($values);
+            $this->badges[$tn['user_id']] = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    }catch (Exception $e){}
+    
+    
         
         $db = DBManager::get();
         $query = "SELECT u.user_id, u.Vorname, u.Nachname, uo.last_lifesign, COUNT(fe.topic_id) AS Forenbeitraege
