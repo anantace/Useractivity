@@ -42,13 +42,15 @@ class IndexController extends StudipController {
 	$this->tn_data = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     //TN Badges
-    foreach ($this->tn_data as $tn){ 
-        $values = array('user_id' => $tn['user_id']);
-        $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id ORDER BY sem_id ASC" ;
-        $statement = \DBManager::get()->prepare($query);
-        $statement->execute($values);
-        $this->badges[$tn['user_id']] = $statement->fetchAll(\PDO::FETCH_ASSOC);
-    }
+    try{
+        foreach ($this->tn_data as $tn){ 
+            $values = array('user_id' => $tn['user_id']);
+            $query = "SELECT * FROM `mooc_badges` WHERE `user_id` LIKE :user_id ORDER BY sem_id ASC" ;
+            $statement = \DBManager::get()->prepare($query);
+            $statement->execute($values);
+            $this->badges[$tn['user_id']] = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    }catch (Exception $e){}
     
     
         
