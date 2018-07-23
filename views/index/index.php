@@ -1,18 +1,17 @@
 
-<div id="sidebar">
+<?php if ($perm_autor || $perm == 'root'): ?>
 
-
-</div>
-
-<h1>AutorInnen:</h1>
+<h1><?= get_title_for_status('autor', 2)?>:</h1>
 <table id="keywords" class="tablesorter">
     <thead>
 		<tr>
-        <th style='width:25%'><span>Name</span></th>
-        <th style='width:27%'><span>Zuletzt online vor</span></th>
-        <th style='display:none; width:27%'><span>Zuletzt online vor</span></th>
-        <th style='width:3%'><span>Anzahl Forenbeiträge</span></th>
-        <? if ($badges): ?>
+        <th ><span>Name</span></th>
+        <th ><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
+        <th><span>Zuletzt online vor</span></th>
+        <th style='display:none; '><span>Zuletzt online vor</span></th>
+        <th style=''><span>Anzahl Forenbeitr�ge</span></th>
+        <? if ($badges) : ?>
         <th style='width:45%'><span>Badges</span></th>
         <? endif ?>
         <!--<th>Courseware besucht?</th>-->
@@ -22,17 +21,11 @@
     <tbody>
     <?
     
-    $currentTime = time();
     $badge_content;
     
     foreach ($tn_data as $tn){ 
     
-        $difference = $currentTime - $tn['last_lifesign'];
-        $last_online = round($difference/(60*60*24),0) . ' Tagen, '. round($difference%(60*60*24)/(60*60), 0) . ' Stunden und ' . round($difference%(60*60)/60, 0) . ' Minuten';
-        if (round($difference/(60*60*24),0) > 1000){
-            $last_online = 'noch nie';
-        }
-
+        
         if($badges[$tn['user_id']]){
             foreach ($badges[$tn['user_id']] as $badge){
                 $block = new \Mooc\DB\Block($badge['badge_block_id']);
@@ -44,11 +37,14 @@
                 '<img title=\'' . date('d.m.Y', $badge['mkdate']) . '\' style=\'max-width:10%\' src=\'../../sendfile.php?type=0&file_id=' . $file_id . '&file_name=' . $file_name . '\'/>';
             }
         }
+        
         ?>
         <tr>
-            <td><?= $tn['Vorname'] . ' ' . $tn['Nachname']?></td>
+            <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tn['username']) ?>' ><?= $tn['Vorname'] . ' ' . $tn['Nachname']?></a></td>
+            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $tn['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $tn['user_id'])) ?></td>
             <td style='display:none'><?= $tn['last_lifesign']?></td>
-            <td><?= $last_online ?></td>
+            <td><?= $controller->lastonline_to_string($tn['last_lifesign'])?></td>
             <td><?= $tn['Forenbeitraege']?></td>
             <? if ($badges): ?>
             <td><?= $badge_content[$tn['user_id']]?></td>
@@ -60,44 +56,77 @@
     ?>
      </tbody>
 </table>
+
+<?php endif ?>
+
+<?php if ($perm_tutor || $perm == 'root'): ?>
     
-<h1>DozentInnen:</h1>
+<h1><?= get_title_for_status('tutor', 2)?>:</h1>
 <table id="keywordsdz" class="tablesorter">
     <thead>
 		<tr>
-                    <th><span>Name</span></th>
+        <th><span>Name</span></th>
+        <th ><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
         <th><span>Zuletzt online vor</span></th>
-        <th style='display:none'><span>Zuletzt online vor</span></th>
-        <th><span>Anzahl Forenbeiträge</span></th>
+        <th style='display:none; '><span>Zuletzt online vor</span></th>
+        <th style=''><span>Anzahl Forenbeitr�ge</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>
     
     <tbody>
-    <?
     
-    $currentTime = time();
-    
-    foreach ($dz_data as $dz){ 
-    
-        $difference = $currentTime - $dz['last_lifesign'];
-        $last_online = round($difference/(60*60*24),0) . ' Tagen, '. round($difference%(60*60*24)/(60*60), 0) . ' Stunden und ' . round($difference%(60*60)/60, 0) . ' Minuten';
-        if (round($difference/(60*60*24),0) > 1000){
-            $last_online = 'noch nie';
-        }
-        ?>
+    <?php foreach ($tt_data as $tt): ?>
         <tr>
-            <td><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></td>
+            <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tt['username']) ?>' ><?= $tt['Vorname'] . ' ' . $tt['Nachname']?></a></td>
+            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $tt['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $tt['user_id'])) ?></td>
+            <td style='display:none'><?= $tt['last_lifesign']?></td>
+            <td><?= $controller->lastonline_to_string($tt['last_lifesign'])?></td>
+            <td><?= $tt['Forenbeitraege']?></td>
+            <!--<td>Courseware besucht?</td>-->
+        </tr>
+    <?php endforeach ?>
+        
+    </tbody>
+</table>
+<?php endif ?>
+
+<?php if ($perm_dozent || $perm == 'root'): ?>
+
+<h1><?= get_title_for_status('dozent', 2)?>:</h1>
+<table id="keywordstt" class="tablesorter">
+    <thead>
+		<tr>
+        <th><span>Name</span></th>
+        <th ><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
+        <th><span>Zuletzt online vor</span></th>
+        <th style='display:none; '><span>Zuletzt online vor</span></th>
+        <th style=''><span>Anzahl Forenbeitr�ge</span></th>
+        <!--<th>Courseware besucht?</th>-->
+    </tr>
+    </thead>
+    
+    <tbody>
+    
+    <?php foreach ($dz_data as $dz): ?>
+        <tr>
+            <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tn['username']) ?>' ><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></a></td>
+            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])) ?></td>
             <td style='display:none'><?= $dz['last_lifesign']?></td>
-            <td><?= $last_online ?></td>
+            <td><?= $controller->lastonline_to_string($dz['last_lifesign'])?></td>
             <td><?= $dz['Forenbeitraege']?></td>
             <!--<td>Courseware besucht?</td>-->
         </tr>
-        <?
-    }
-    ?>
-     </tbody>
+    <?php endforeach ?>
+        
+    </tbody>
 </table>
+<?php endif ?>
+
 
 <script type="text/javascript">
 
@@ -107,6 +136,9 @@ $(function(){
 });
 $(function(){
   $('#keywordsdz').tablesorter(); 
+});
+$(function(){
+  $('#keywordstt').tablesorter(); 
 });
 
 
