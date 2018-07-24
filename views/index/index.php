@@ -10,7 +10,7 @@
         <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
         <th><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeitrï¿½ge</span></th>
+        <th style=''><span>Anzahl Forenbeiträge</span></th>
         <? if ($badges) : ?>
         <th style='width:45%'><span>Badges</span></th>
         <? endif ?>
@@ -70,7 +70,7 @@
         <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
         <th><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeitrï¿½ge</span></th>
+        <th style=''><span>Anzahl Forenbeiträge</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>
@@ -104,7 +104,7 @@
         <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
         <th><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeitrï¿½ge</span></th>
+        <th style=''><span>Anzahl Forenbeiträge</span></th>
         <!--<th>Courseware besucht?</th>-->
     </tr>
     </thead>
