@@ -113,7 +113,7 @@
     
     <?php foreach ($dz_data as $dz): ?>
         <tr>
-            <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tn['username']) ?>' ><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></a></td>
+            <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $dz['username']) ?>' ><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></a></td>
             <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])?></td>
             <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])) ?></td>
             <td style='display:none'><?= $dz['last_lifesign']?></td>
