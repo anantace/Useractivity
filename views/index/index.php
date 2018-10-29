@@ -2,17 +2,17 @@
 <?php if ($perm_autor || $perm == 'root'): ?>
 
 <h1><?= get_title_for_status('autor', 2)?>:</h1>
-<table id="keywords" class="tablesorter">
+<table id="keywords" class="sortable-table default">
     <thead>
 		<tr>
-        <th ><span>Name</span></th>
-        <th ><span>Letzter Kursbesuch vor</span></th>
-        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
-        <th><span>Zuletzt online vor</span></th>
+        <th data-sort="text"><span>Name</span></th>
+        <th data-sort="text"><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
+        <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeiträge</span></th>
+        <th data-sort="text" style=''><span>Anzahl Forenbeiträge</span></th>
         <? if ($badges) : ?>
-        <th style='width:45%'><span>Badges</span></th>
+        <th data-sort="text" style='width:45%'><span>Badges</span></th>
         <? endif ?>
         <!--<th>Courseware besucht?</th>-->
     </tr>
@@ -62,16 +62,15 @@
 <?php if ($perm_tutor || $perm == 'root'): ?>
     
 <h1><?= get_title_for_status('tutor', 2)?>:</h1>
-<table id="keywordsdz" class="tablesorter">
+<table id="keywordsdz" class="sortable-table default">
     <thead>
 		<tr>
-        <th><span>Name</span></th>
-        <th ><span>Letzter Kursbesuch vor</span></th>
-        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
-        <th><span>Zuletzt online vor</span></th>
+        <th data-sort="text"><span>Name</span></th>
+        <th data-sort="text"><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
+        <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeiträge</span></th>
-        <!--<th>Courseware besucht?</th>-->
+        <th data-sort="text" style=''><span>Anzahl Forenbeiträge</span></th>  
     </tr>
     </thead>
     
@@ -96,16 +95,15 @@
 <?php if ($perm_dozent || $perm == 'root'): ?>
 
 <h1><?= get_title_for_status('dozent', 2)?>:</h1>
-<table id="keywordstt" class="tablesorter">
+<table id="keywordstt" class="sortable-table default">
     <thead>
 		<tr>
-        <th><span>Name</span></th>
-        <th ><span>Letzter Kursbesuch vor</span></th>
-        <th style='display:none; '><span>Letzter Kursbesuch vor</span></th>
-        <th><span>Zuletzt online vor</span></th>
+        <th data-sort="text"><span>Name</span></th>
+        <th data-sort="text"><span>Letzter Kursbesuch vor</span></th>
+        <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
+        <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th style=''><span>Anzahl Forenbeiträge</span></th>
-        <!--<th>Courseware besucht?</th>-->
+        <th data-sort="text" style=''><span>Anzahl Forenbeiträge</span></th>  
     </tr>
     </thead>
     
@@ -127,19 +125,3 @@
 </table>
 <?php endif ?>
 
-
-<script type="text/javascript">
-
-    
-$(function(){
-  $('#keywords').tablesorter(); 
-});
-$(function(){
-  $('#keywordsdz').tablesorter(); 
-});
-$(function(){
-  $('#keywordstt').tablesorter(); 
-});
-
-
-</script>
