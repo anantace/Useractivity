@@ -1,5 +1,5 @@
 <?php
-class AddSettingsTable extends DBMigration {
+class AddSettingsTable extends Migration {
 
     public function description () {
         return 'create tables for the Useractivity-plugin to save settings';
