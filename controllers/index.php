@@ -18,14 +18,14 @@ class IndexController extends StudipController {
         $this->course = Course::findCurrent();
         global $perm;
         
-        PageLayout::setTitle($this->course->getFullname()." - " ._("Teilnehmeraktivität"));
+        PageLayout::setTitle($this->course->getFullname()." - " ._("TeilnehmeraktivitÃ¤t"));
 
         // $this->set_layout('layouts/base');
         $this->set_layout($GLOBALS['template_factory']->open('layouts/base'));
             
         $navcreate = new LinksWidget();
         $navcreate->setTitle('Navigation');
-        $navcreate->addLink("Übersicht", PluginEngine::getLink($this->plugin, array(), 'index'));
+        $navcreate->addLink("Ãœbersicht", PluginEngine::getLink($this->plugin, array(), 'index'));
         
         Sidebar::get()->addWidget($navcreate);
         

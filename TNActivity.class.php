@@ -28,10 +28,10 @@ class TNActivity extends StudIPPlugin implements StandardPlugin
     public function getTabNavigation($course_id)
     {
         global $perm;
-        if ($perm->have_studip_perm('tutor', $course_id)){
+        if ($perm->have_studip_perm('tutor', $course_id) || $GLOBALS['perm']->have_perm('root')){
             return array(
                 'contact' => new Navigation(
-                    'Teilnehmeraktivit‰t',
+                    'Teilnehmeraktivit√§t',
                     PluginEngine::getURL($this, array(), 'index')
                 )
             );

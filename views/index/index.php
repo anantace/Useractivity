@@ -10,7 +10,7 @@
         <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
         <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th data-sort="text" style=''><span>Anzahl Forenbeitr‰ge</span></th>
+        <th data-sort="text" style=''><span>Anzahl Forenbeitr√§ge</span></th>
         <? if ($badges) : ?>
         <th data-sort="text" style='width:45%'><span>Badges</span></th>
         <? endif ?>
@@ -70,7 +70,7 @@
         <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
         <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th data-sort="text" style=''><span>Anzahl Forenbeitr‰ge</span></th>  
+        <th data-sort="text" style=''><span>Anzahl Forenbeitr√§ge</span></th>  
     </tr>
     </thead>
     
@@ -103,7 +103,7 @@
         <th style='display:none;'><span>Letzter Kursbesuch vor</span></th>
         <th data-sort="text"><span>Zuletzt online vor</span></th>
         <th style='display:none; '><span>Zuletzt online vor</span></th>
-        <th data-sort="text" style=''><span>Anzahl Forenbeitr‰ge</span></th>  
+        <th data-sort="text" style=''><span>Anzahl Forenbeitr√§ge</span></th>  
     </tr>
     </thead>
     

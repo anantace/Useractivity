@@ -18,7 +18,7 @@ $message_types = array('msg' => "success", 'error' => "error", 'info' => "info")
 <form name="settings" method="post" action="<?= $controller->url_for('index/set') ?>" <?= $dialog_attr ?> class="default collapsable">
     <?= CSRFProtection::tokenTag() ?>
     <fieldset  data-open="visible_tutor">
-        <legend><?= _('Sichtbar für ') . get_title_for_status('tutor', 2) ?></legend>
+        <legend><?= _('Sichtbar fÃ¼r ') . get_title_for_status('tutor', 2) ?></legend>
         <ul style='list-style: none'>
             <li><input type='checkbox' name='visibility[tutor][]' value ='autor' <?= (in_array('autor', $settings['tutor'])) ? 'checked' : '' ?>> <?= get_title_for_status('autor', 2) ?> </li>
             <li><input type='checkbox' name='visibility[tutor][]' value ='tutor' <?= (in_array('tutor', $settings['tutor'])) ? 'checked' : '' ?>> <?= get_title_for_status('tutor', 2) ?> </li>
@@ -28,7 +28,7 @@ $message_types = array('msg' => "success", 'error' => "error", 'info' => "info")
     </fieldset>
     
     <fieldset  data-open="visible_dozent">
-        <legend><?= _('Sichtbar für ') . get_title_for_status('dozent', 2) ?></legend>
+        <legend><?= _('Sichtbar fÃ¼r ') . get_title_for_status('dozent', 2) ?></legend>
         <ul style='list-style: none'>
             <li><input type='checkbox' name='visibility[dozent][]' value ='autor' <?= (in_array('autor', $settings['dozent'])) ? 'checked' : '' ?>> <?= get_title_for_status('autor', 2) ?> </li>
             <li><input type='checkbox' name='visibility[dozent][]' value ='tutor' <?= (in_array('tutor', $settings['dozent'])) ? 'checked' : '' ?>> <?= get_title_for_status('tutor', 2) ?> </li>
@@ -38,6 +38,6 @@ $message_types = array('msg' => "success", 'error' => "error", 'info' => "info")
     </fieldset>
     
     <footer data-dialog-button>
-        <?= Button::create(_('Übernehmen')) ?>
+        <?= Button::create(_('Ãœbernehmen')) ?>
     </footer>
 </form>
