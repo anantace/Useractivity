@@ -116,7 +116,7 @@ class IndexController extends StudipController {
         return $temp[0];
     }
     
-    public function object_get_visit_as_string($course_id, $user_id, $time){
+    public function object_get_visit_as_string($course_id, $user_id, $time=null){
         if (!$time) {
             $time = $this->object_get_visit($course_id, $user_id);
         }
