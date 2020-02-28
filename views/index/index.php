@@ -42,7 +42,7 @@
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tn['username']) ?>' ><?= $tn['Vorname'] . ' ' . $tn['Nachname']?></a></td>
             <td style='display:none'><?= $controller->object_get_visit($course->id, $tn['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $tn['user_id'])) ?></td>
+            <td><?= $controller->object_get_visit_as_string($course->id, $tn['user_id']) ?></td>
             <td style='display:none'><?= $tn['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($tn['last_lifesign'])?></td>
             <td><?= $tn['Forenbeitraege']?></td>
@@ -80,7 +80,7 @@
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tt['username']) ?>' ><?= $tt['Vorname'] . ' ' . $tt['Nachname']?></a></td>
             <td style='display:none'><?= $controller->object_get_visit($course->id,  $tt['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $tt['user_id'])) ?></td>
+            <td><?= $controller->object_get_visit_as_string($course->id, $tt['user_id']) ?></td>
             <td style='display:none'><?= $tt['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($tt['last_lifesign'])?></td>
             <td><?= $tt['Forenbeitraege']?></td>
@@ -113,7 +113,7 @@
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $dz['username']) ?>' ><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></a></td>
             <td style='display:none'><?= $controller->object_get_visit($course->id, $dz['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $dz['user_id'])) ?></td>
+            <td><?= $controller->object_get_visit_as_string($course->id, $dz['user_id']) ?></td>
             <td style='display:none'><?= $dz['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($dz['last_lifesign'])?></td>
             <td><?= $dz['Forenbeitraege']?></td>
