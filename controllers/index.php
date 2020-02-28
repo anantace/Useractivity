@@ -113,7 +113,7 @@ class IndexController extends StudipController {
         $statement = DBManager::get()->prepare($query);
         $statement->execute(array($course_id, $user_id));
         $temp = $statement->fetch(PDO::FETCH_ASSOC);
-        return $temp;
+        return $temp[0];
     }
     
     public function object_get_visit_as_string($course_id, $user_id){
