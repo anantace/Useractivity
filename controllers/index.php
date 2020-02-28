@@ -113,7 +113,7 @@ class IndexController extends StudipController {
         $statement = DBManager::get()->prepare($query);
         $statement->execute(array($course_id, $user_id));
         $temp = $statement->fetch(PDO::FETCH_ASSOC);
-        return $temp[0];
+        return $temp['visitdate'];
     }
     
     public function object_get_visit_as_string($course_id, $user_id, $time=null){
@@ -122,7 +122,7 @@ class IndexController extends StudipController {
         }
         $difference = time() - $time;
         if ($difference == time()) {
-            return 'noch nie' . $time;
+            return 'noch nie';
         }
         $last_online = round($difference/(60*60*24),0) . ' Tagen, '. round(($difference%(60*60*24))/(60*60), 0) . ' Stunden und ' . round(($difference%(60*60))/60, 0) . ' Minuten';
         if (round($difference/(60*60*24),0) > 1000){
