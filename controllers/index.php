@@ -108,7 +108,10 @@ class IndexController extends StudipController {
     
     public function lastonline_to_string($time){
         $difference = time() - $time;
-        $last_online = round($difference/(60*60*24),0) . ' Tagen, '. round($difference%(60*60*24)/(60*60), 0) . ' Stunden und ' . round($difference%(60*60)/60, 0) . ' Minuten';
+        if ($difference == time()) {
+            return 'noch nie';
+        }
+        $last_online = round($difference/(60*60*24),0) . ' Tagen, '. round(($difference%(60*60*24))/(60*60), 0) . ' Stunden und ' . round(($difference%(60*60))/60, 0) . ' Minuten';
         if (round($difference/(60*60*24),0) > 1000){
             $last_online = 'noch nie';
         }
