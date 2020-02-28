@@ -41,8 +41,8 @@
         ?>
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tn['username']) ?>' ><?= $tn['Vorname'] . ' ' . $tn['Nachname']?></a></td>
-            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $tn['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $tn['user_id'])) ?></td>
+            <td style='display:none'><?= $controller->object_get_visit($course->id, $tn['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $tn['user_id'])) ?></td>
             <td style='display:none'><?= $tn['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($tn['last_lifesign'])?></td>
             <td><?= $tn['Forenbeitraege']?></td>
@@ -79,8 +79,8 @@
     <?php foreach ($tt_data as $tt): ?>
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $tt['username']) ?>' ><?= $tt['Vorname'] . ' ' . $tt['Nachname']?></a></td>
-            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $tt['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $tt['user_id'])) ?></td>
+            <td style='display:none'><?= $controller->object_get_visit($course->id,  $tt['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $tt['user_id'])) ?></td>
             <td style='display:none'><?= $tt['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($tt['last_lifesign'])?></td>
             <td><?= $tt['Forenbeitraege']?></td>
@@ -112,8 +112,8 @@
     <?php foreach ($dz_data as $dz): ?>
         <tr>
             <td><a href='<?= URLHelper::getLink('dispatch.php/profile?username=' . $dz['username']) ?>' ><?= $dz['Vorname'] . ' ' . $dz['Nachname']?></a></td>
-            <td style='display:none'><?= object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])?></td>
-            <td><?= $controller->lastonline_to_string(object_get_visit($course->id, 'sem', 'last', false, $dz['user_id'])) ?></td>
+            <td style='display:none'><?= $controller->object_get_visit($course->id, $dz['user_id'])?></td>
+            <td><?= $controller->lastonline_to_string($controller->object_get_visit($course->id, $dz['user_id'])) ?></td>
             <td style='display:none'><?= $dz['last_lifesign']?></td>
             <td><?= $controller->lastonline_to_string($dz['last_lifesign'])?></td>
             <td><?= $dz['Forenbeitraege']?></td>

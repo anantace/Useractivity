@@ -106,6 +106,16 @@ class IndexController extends StudipController {
         
     }
     
+    public function object_get_visit($course_id, $user_id){
+        $query = "SELECT visitdate
+                  FROM object_user_visits
+                  WHERE object_id = ? AND user_id = ? AND type IN ('sem')";
+        $statement = DBManager::get()->prepare($query);
+        $statement->execute(array($course_id, $user_id));
+        $temp = $statement->fetch(PDO::FETCH_ASSOC);
+        return $temp;
+    }
+    
     public function lastonline_to_string($time){
         $difference = time() - $time;
         if ($difference == time()) {
